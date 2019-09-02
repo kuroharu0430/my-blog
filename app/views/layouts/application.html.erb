@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript"
+  src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+  </head>
+  
+  <body>
+  <header>
+    <ul>
+      <% if user_signed_in?%>
+          <%=link_to destroy_user_session_path, method:"delete" do %>
+            <li>sign-out</li>
+          <%end%>
+      <%else%>
+        <%=link_to new_user_session_path do%>
+          <li>sign-in</li>
+        <%end%>
+      <%end%>
+      <%=link_to root_path do%>
+          <li>index</li>
+        <%end%>
+</header>
+    <%= yield %>
+  </body>
+</html>

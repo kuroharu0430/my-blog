@@ -1,0 +1,12 @@
+<h1 class="message-heading">メッセージ作成</h1>
+
+<div class="messsage-form">
+  <%= form_for [@user,@message] do |f| %>
+  <p>title:</p>
+  <%=f.text_field :title%>
+  <%=f.text_field :text%>
+  <%=f.file_field :img%>
+  <%=f.submit "SEND"%>
+  <%end%>
+  
+</div>

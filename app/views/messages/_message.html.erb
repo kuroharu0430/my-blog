@@ -1,0 +1,7 @@
+ <%= link_to user_path(message.user_id) do %>
+  <div class="main__message">
+  <h3><%=message.user.name%></h3>
+  <h3>title:<%=message.title%></h3>
+  <h4><%=message.text%></h4>
+  </div>
+<%end%>

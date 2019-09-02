@@ -1,0 +1,25 @@
+<div class="black">
+    <h1><%=@user.name%>のページ</h1>
+  <div class ="show">
+    <div class="show__message">
+      <% @messages.each do |message| %>
+        <div class="show__message-box">
+          <h2><%=message.title%></h2>
+          <h5><%=message.text%></h5>
+        </div>
+        <%end%>
+    </div>
+
+    <div class="show__about">
+
+    <div class="show__about-comment">
+    <h5>ABOUT</h5>
+    <p>出身地などなど</p>
+    <% if current_user%>
+      <%if current_user.id == @user.id%>
+        <%=link_to "新規投稿", new_user_message_path(current_user),class:"buttom new" %>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+</div>
